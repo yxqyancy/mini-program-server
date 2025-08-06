@@ -1,0 +1,1328 @@
+/**work-guide.wxss**/
+.container {
+  min-height: 100vh;
+  padding: 30rpx;
+}
+
+/* 页面标题 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+  padding: 20rpx 0;
+}
+
+.page-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15rpx;
+  align-items: center;
+}
+
+.save-btn {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.save-btn:active {
+  background: var(--ocean-secondary);
+  transform: scale(0.95);
+}
+
+.edit-btn {
+  background: var(--ocean-secondary);
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+/* 区块样式 */
+.section {
+  margin-bottom: 30rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid var(--ocean-light);
+}
+
+.section-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+/* 工作流程样式 */
+.workflows-container {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.workflows-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.workflows-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.workflows-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.workflows-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.workflow-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300rpx;
+  min-height: 400rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.workflow-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.workflow-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.workflow-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 25rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.workflow-desc {
+  font-size: 26rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  display: block;
+  word-wrap: break-word;
+  flex: 1;
+  height: auto;
+}
+
+/* 工作流程编辑样式 */
+.workflows-edit {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.edit-notice {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(59, 130, 246, 0.1));
+  padding: 20rpx 30rpx;
+  border-radius: 15rpx;
+  margin-bottom: 30rpx;
+  border-left: 4rpx solid var(--ocean-accent);
+  text-align: center;
+}
+
+.edit-notice text {
+  font-size: 26rpx;
+  color: var(--ocean-secondary);
+  font-weight: 500;
+}
+
+.workflows-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.workflows-grid-edit::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.workflows-grid-edit::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.workflows-grid-edit::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.workflow-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 400rpx;
+  min-height: 450rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.workflow-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+.workflow-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex: 1;
+  height: auto;
+}
+
+.workflow-title-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.workflow-desc-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  min-height: 300rpx;
+  resize: vertical;
+  flex: 1;
+  text-align: left;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* 添加工作流程按钮 */
+.add-workflow-btn {
+  background: linear-gradient(135deg, var(--ocean-accent), var(--ocean-primary));
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 25rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 15rpx rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  margin-left: 20rpx;
+}
+
+.add-workflow-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(30, 58, 138, 0.4);
+}
+
+/* 删除工作流程按钮 */
+.remove-workflow-btn {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3rpx 12rpx rgba(255, 71, 87, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-workflow-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2rpx 8rpx rgba(255, 71, 87, 0.6);
+}
+
+/* 注意事项样式 */
+.notices-container {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.notices-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.notices-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.notices-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.notices-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.notice-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300rpx;
+  min-height: 400rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.notice-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.notice-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.notice-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 25rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.notice-desc {
+  font-size: 26rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  display: block;
+  word-wrap: break-word;
+  flex: 1;
+  height: auto;
+}
+
+/* 注意事项编辑样式 */
+.notices-edit {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.notices-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.notices-grid-edit::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.notices-grid-edit::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.notices-grid-edit::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.notice-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 400rpx;
+  min-height: 450rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.notice-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+.notice-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex: 1;
+  height: auto;
+}
+
+.notice-title-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.notice-desc-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  min-height: 300rpx;
+  resize: vertical;
+  flex: 1;
+  text-align: left;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* 添加注意事项按钮 */
+.add-notice-btn {
+  background: linear-gradient(135deg, var(--ocean-accent), var(--ocean-primary));
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 25rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 15rpx rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  margin-left: 20rpx;
+}
+
+.add-notice-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(30, 58, 138, 0.4);
+}
+
+/* 删除注意事项按钮 */
+.remove-notice-btn {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3rpx 12rpx rgba(255, 71, 87, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-notice-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2rpx 8rpx rgba(255, 71, 87, 0.6);
+}
+
+/* 实用工具样式 */
+.tools-container {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.tools-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tools-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.tools-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.tools-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300rpx;
+  min-height: 400rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.tool-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.tool-card:active {
+  border-color: var(--ocean-secondary);
+  transform: scale(0.98);
+}
+
+.tool-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.tool-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 25rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.tool-desc {
+  font-size: 26rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 25rpx;
+  word-wrap: break-word;
+  flex: 1;
+  height: auto;
+}
+
+.tool-url {
+  font-size: 22rpx;
+  color: var(--ocean-secondary);
+  line-height: 1.3;
+  display: block;
+  word-break: break-all;
+  height: auto;
+}
+
+/* 实用工具编辑样式 */
+.tools-edit {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.tools-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tools-grid-edit::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.tools-grid-edit::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.tools-grid-edit::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.tool-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 400rpx;
+  min-height: 450rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+.tool-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex: 1;
+  height: auto;
+}
+
+.tool-name-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.tool-desc-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  min-height: 300rpx;
+  resize: vertical;
+  flex: 1;
+  text-align: left;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.tool-url-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+/* 添加工具按钮 */
+.add-tool-btn {
+  background: linear-gradient(135deg, var(--ocean-accent), var(--ocean-primary));
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 25rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 15rpx rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  margin-left: 20rpx;
+}
+
+.add-tool-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(30, 58, 138, 0.4);
+}
+
+/* 删除工具按钮 */
+.remove-tool-btn {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3rpx 12rpx rgba(255, 71, 87, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-tool-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2rpx 8rpx rgba(255, 71, 87, 0.6);
+}
+
+/* 输入框和文本域样式 */
+.input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 15rpx;
+  padding: 20rpx;
+  font-size: 32rpx;
+  color: var(--ocean-text);
+  box-sizing: border-box;
+}
+
+.textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 15rpx;
+  padding: 20rpx;
+  font-size: 32rpx;
+  color: var(--ocean-text);
+  min-height: 120rpx;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* 按钮样式 */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ocean-primary);
+  border: 2rpx solid var(--ocean-primary);
+  border-radius: 25rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+}
+
+.btn-danger {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+/* 海洋装饰 */
+.ocean-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.seaweed {
+  position: absolute;
+  font-size: 40rpx;
+  animation: seaweedSway 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.seaweed-1 {
+  bottom: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.seaweed-2 {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.seaweed-3 {
+  bottom: 8%;
+  left: 60%;
+  animation-delay: 4s;
+}
+
+@keyframes seaweedSway {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 20rpx;
+  }
+  
+  .page-title {
+    font-size: 40rpx;
+  }
+  
+  .section-title {
+    font-size: 32rpx;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .workflow-card-edit,
+  .notice-card-edit,
+  .tool-card-edit,
+  .material-card-edit {
+    width: 360rpx;
+    padding: 30rpx;
+  }
+  
+  .material-card {
+    width: 280rpx;
+    padding: 30rpx;
+  }
+}
+
+/* 授权验证弹窗样式 */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20rpx;
+  width: 80%;
+  max-width: 600rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  z-index: 1001;
+}
+
+.modal-header {
+  background: var(--ocean-primary);
+  color: white;
+  padding: 30rpx;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 40rpx 30rpx;
+}
+
+.modal-desc {
+  font-size: 30rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.auth-info {
+  background: var(--ocean-light);
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.auth-note {
+  font-size: 26rpx;
+  color: var(--ocean-text-light);
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  border-top: 1rpx solid #eee;
+}
+
+.btn-cancel,
+.btn-confirm {
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border: none;
+  background: transparent;
+}
+
+.btn-cancel {
+  color: var(--ocean-text-light);
+  border-right: 1rpx solid #eee;
+}
+
+.btn-confirm {
+  background: var(--ocean-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* 管理员管理弹窗样式 */
+.admin-modal {
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.admin-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--ocean-dark);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.admin-list {
+  margin-bottom: 20px;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--ocean-light);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.admin-name {
+  font-size: 14px;
+  color: var(--ocean-dark);
+  flex: 1;
+}
+
+.btn-remove {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.add-admin {
+  border-top: 1px solid var(--ocean-light);
+  padding-top: 16px;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ocean-light);
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.btn-add {
+  background: var(--ocean-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.btn-cancel:active,
+.btn-confirm:active {
+  background: #f5f5f5;
+}
+
+/* 密码验证相关样式 */
+.password-input-group {
+  margin: 20rpx 0;
+}
+
+.password-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.password-setting {
+  margin: 20rpx 0;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 15rpx;
+  display: block;
+} 
+
+/* 工作材料卡片样式 */
+.materials-container {
+  margin-bottom: 20rpx;
+}
+
+.materials-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+  overflow-x: auto;
+  padding: 10rpx 0;
+  scroll-behavior: smooth;
+}
+
+.materials-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.materials-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.materials-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.material-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300rpx;
+  min-height: 400rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.material-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.material-card:active {
+  border-color: var(--ocean-secondary);
+  transform: scale(0.98);
+}
+
+.material-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.material-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 25rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.material-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+  margin-top: 20rpx;
+  flex: 0 0 auto;
+}
+
+.file-icon {
+  font-size: 40rpx;
+  color: var(--ocean-accent);
+}
+
+.file-name {
+  font-size: 22rpx;
+  color: var(--ocean-secondary);
+  line-height: 1.3;
+  display: block;
+  word-break: break-all;
+  height: auto;
+}
+
+/* 工作材料编辑模式卡片样式 */
+.materials-edit {
+  margin-bottom: 20rpx;
+}
+
+.materials-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+  overflow-x: auto;
+  padding: 10rpx 0;
+  scroll-behavior: smooth;
+}
+
+.material-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 400rpx;
+  min-height: 450rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.material-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+.material-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex: 1;
+  height: auto;
+}
+
+.material-name-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+  padding: 20rpx;
+  background: rgba(30, 58, 138, 0.05);
+  border-radius: 10rpx;
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+}
+
+.file-info .file-icon {
+  font-size: 30rpx;
+  color: var(--ocean-accent);
+}
+
+.file-info .file-name {
+  font-size: 20rpx;
+  color: var(--ocean-secondary);
+  text-align: center;
+  word-break: break-all;
+}
+
+.btn-upload {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  width: fit-content;
+  align-self: center;
+}
+
+.btn-upload:active {
+  background: var(--ocean-secondary);
+}
+
+.btn-remove-file {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  width: fit-content;
+  align-self: center;
+}
+
+.btn-remove-file:active {
+  background: #e53e3e;
+}
+
+.remove-material-btn {
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.remove-material-btn:active {
+  background: #e53e3e;
+  transform: scale(0.95);
+} 

@@ -1,0 +1,155 @@
+<!--department.wxml-->
+<view class="container ocean-bg">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">🏢 部门简介</text>
+    <view class="header-buttons">
+      <button class="save-btn" bindtap="saveDepartmentInfo" wx:if="{{isEditMode && hasUnsavedChanges}}">
+        💾 保存
+      </button>
+      <button class="edit-btn" bindtap="toggleEditMode">
+        {{isEditMode ? '完成编辑' : '编辑成员'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 部门基本信息 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">📋</text>
+      <text class="section-title">部门简介</text>
+    </view>
+    
+    <view class="department-info">
+      <view class="department-name">
+        <text class="name-label">部门名称</text>
+        <text class="name-value">{{departmentInfo.name}}</text>
+      </view>
+      
+      <view class="department-description">
+        <text class="desc-label">部门职责</text>
+        <text class="desc-value">{{departmentInfo.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 成员介绍 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">👥</text>
+      <text class="section-title">成员介绍</text>
+      <button class="add-member-btn" bindtap="addMemberCard" wx:if="{{isEditMode}}">
+        ➕ 添加成员
+      </button>
+    </view>
+    
+    <!-- 成员展示区域 -->
+    <view class="members-container" wx:if="{{!isEditMode}}">
+      <view class="members-grid">
+        <view class="member-card" wx:for="{{members}}" wx:key="index">
+          <view class="member-photo-container">
+            <image class="member-photo" 
+                   src="{{item.photo || '/images/default-avatar.png'}}" 
+                   mode="aspectFill"
+                   wx:if="{{item.photo}}"/>
+            <view class="member-photo-placeholder" wx:else>
+              <text class="photo-placeholder-text">📷</text>
+            </view>
+          </view>
+          <view class="member-info">
+            <text class="member-name">{{item.name}}</text>
+            <text class="member-description">{{item.description}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 成员编辑区域 -->
+    <view class="members-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{members.length}} 个成员</text>
+      </view>
+      
+      <view class="members-grid-edit">
+        <view class="member-card-edit" wx:for="{{members}}" wx:key="index">
+          <view class="member-photo-edit" bindtap="selectMemberPhoto" data-index="{{index}}">
+            <image class="member-photo" 
+                   src="{{item.photo || '/images/default-avatar.png'}}" 
+                   mode="aspectFill"
+                   wx:if="{{item.photo}}"/>
+            <view class="member-photo-placeholder" wx:else>
+              <text class="photo-placeholder-text">点击添加照片</text>
+            </view>
+          </view>
+          <view class="member-info-edit">
+            <input class="member-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateMemberName" 
+                   data-index="{{index}}"
+                   placeholder="成员姓名"/>
+            <textarea class="member-description-input" 
+                      value="{{item.description}}" 
+                      bindinput="updateMemberDescription" 
+                      data-index="{{index}}"
+                      placeholder="成员简介"/>
+          </view>
+          <button class="remove-member-btn" 
+                  bindtap="removeMemberCard" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 海洋装饰元素 -->
+  <view class="ocean-decoration">
+    <view class="bubble bubble-1">🫧</view>
+    <view class="bubble bubble-2">🫧</view>
+    <view class="bubble bubble-3">🫧</view>
+  </view>
+
+  <!-- 密码验证弹窗 -->
+  <view class="auth-modal" wx:if="{{showPasswordModal}}">
+    <view class="modal-overlay" bindtap="cancelPasswordAuth"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🔐 管理员验证</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">请输入管理员密码以验证身份</text>
+        <view class="password-input-group">
+          <input class="password-input" 
+                 type="password" 
+                 placeholder="请输入密码" 
+                 value="{{currentPassword}}"
+                 bindinput="inputPassword" />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="cancelPasswordAuth">取消</button>
+        <button class="btn-confirm" bindtap="verifyPassword">验证</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 保存提醒弹窗 -->
+  <view class="auth-modal" wx:if="{{showSaveReminderModal}}">
+    <view class="modal-overlay" bindtap="cancelSaveReminder"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">💾 保存提醒</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">您有未保存的更改，是否要保存？</text>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="discardChanges">放弃更改</button>
+        <button class="btn-confirm" bindtap="confirmSave">保存</button>
+      </view>
+    </view>
+  </view>
+
+
+</view> 

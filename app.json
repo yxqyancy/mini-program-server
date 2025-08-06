@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/department/department",
+    "pages/work-guide/work-guide",
+    "pages/life-guide/life-guide",
+    "pages/cloud-test/cloud-test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1e3a8a",
+    "navigationBarTitleText": "柯基指南",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f9ff"
+  },
+  "tabBar": {
+    "color": "#64748b",
+    "selectedColor": "#1e3a8a",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/department/department",
+        "text": "部门简介"
+      },
+      {
+        "pagePath": "pages/work-guide/work-guide",
+        "text": "工作指南"
+      },
+      {
+        "pagePath": "pages/life-guide/life-guide",
+        "text": "生活指南"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+} 

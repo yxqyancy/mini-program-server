@@ -1,0 +1,165 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <text class="page-title">🐕 柯基指南</text>
+    <text class="page-subtitle">温暖贴心的部门指南，像柯基一样可爱实用</text>
+  </view>
+
+  <!-- 服务器连接状态 -->
+  <view class="server-status-section">
+    <view class="server-status-card card">
+      <view class="server-status-header">
+        <text class="server-status-icon">{{serverStatus.connected ? '🟢' : '🔴'}}</text>
+        <text class="server-status-title">服务器连接状态</text>
+        <view class="server-status-indicator {{serverStatus.loading ? 'loading' : ''}}">
+          {{serverStatus.loading ? '⏳' : (serverStatus.connected ? '🟢' : '🔴')}}
+        </view>
+      </view>
+      
+      <view class="server-status-info">
+        <text class="status-text">
+          状态: {{serverStatus.connected ? '已连接' : '未连接'}}
+        </text>
+        <text class="last-check-text" wx:if="{{serverStatus.lastCheck}}">
+          最后检查: {{serverStatus.lastCheck}}
+        </text>
+        <text class="error-text" wx:if="{{serverStatus.error}}">
+          错误: {{serverStatus.error}}
+        </text>
+      </view>
+      
+      <view class="server-status-buttons">
+        <button class="btn-secondary" bindtap="testServerConnection">
+          🔍 测试连接
+        </button>
+        <button class="btn-secondary" bindtap="reconnectServer">
+          🔄 重新连接
+        </button>
+        <button class="btn-secondary" bindtap="diagnoseNetwork">
+          🔧 网络诊断
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 管理员功能 -->
+  <view class="admin-section" wx:if="{{isAdmin}}">
+    <view class="admin-card card">
+      <view class="admin-header">
+        <text class="admin-icon">🔐</text>
+        <text class="admin-title">管理员功能</text>
+      </view>
+      <view class="admin-buttons">
+        <button class="btn-secondary" bindtap="showPasswordSetting">
+          🔐 密码设置
+        </button>
+        <button class="btn-secondary" bindtap="logout">
+          🚪 退出登录
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 密码验证入口 -->
+  <view class="admin-section" wx:if="{{!isAdmin}}">
+    <view class="admin-card card">
+      <view class="admin-header">
+        <text class="admin-icon">🔐</text>
+        <text class="admin-title">管理员验证</text>
+      </view>
+      <view class="admin-buttons">
+        <button class="btn-primary" bindtap="testPasswordAuth">
+          🔐 密码验证
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能导航 -->
+  <view class="nav-section">
+    <view class="nav-card card" bindtap="goToDepartment">
+      <view class="nav-card-header">
+        <text class="nav-icon">🏢</text>
+        <text class="nav-title">部门简介</text>
+      </view>
+      <text class="nav-desc">了解部门基本信息、组织架构、联系方式等</text>
+      <view class="nav-arrow">→</view>
+    </view>
+
+    <view class="nav-card card" bindtap="goToWorkGuide">
+      <view class="nav-card-header">
+        <text class="nav-icon">💼</text>
+        <text class="nav-title">工作指南</text>
+      </view>
+      <text class="nav-desc">查看工作流程、规章制度、操作指南等</text>
+      <view class="nav-arrow">→</view>
+    </view>
+
+    <view class="nav-card card" bindtap="goToLifeGuide">
+      <view class="nav-card-header">
+        <text class="nav-icon">🏠</text>
+        <text class="nav-title">生活指南</text>
+      </view>
+      <text class="nav-desc">获取生活服务、周边信息、实用贴士等</text>
+      <view class="nav-arrow">→</view>
+    </view>
+  </view>
+
+  <!-- 柯基装饰 -->
+  <view class="corgi-decoration">
+    <view class="corgi-paw corgi-paw-1">🐾</view>
+    <view class="corgi-paw corgi-paw-2">🐾</view>
+    <view class="corgi-paw corgi-paw-3">🐾</view>
+    <view class="corgi-tail corgi-tail-1">🦊</view>
+    <view class="corgi-tail corgi-tail-2">🦊</view>
+  </view>
+
+  <!-- 密码验证弹窗 -->
+  <view class="auth-modal" wx:if="{{showPasswordModal}}">
+    <view class="modal-overlay" bindtap="cancelPasswordAuth"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🔐 管理员验证</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">请输入管理员密码以验证身份</text>
+        <view class="password-input-group">
+          <input class="password-input" 
+                 type="password" 
+                 placeholder="请输入密码" 
+                 value="{{currentPassword}}"
+                 bindinput="inputPassword" />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="cancelPasswordAuth">取消</button>
+        <button class="btn-confirm" bindtap="verifyPassword">验证</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 密码设置弹窗 -->
+  <view class="auth-modal" wx:if="{{showPasswordSettingModal}}">
+    <view class="modal-overlay" bindtap="hidePasswordSetting"></view>
+    <view class="modal-content admin-modal">
+      <view class="modal-header">
+        <text class="modal-title">🔐 密码设置</text>
+      </view>
+      <view class="modal-body">
+        <view class="password-setting">
+          <text class="setting-title">设置新密码：</text>
+          <input class="password-input" 
+                 type="password" 
+                 placeholder="输入新密码" 
+                 value="{{adminPassword}}"
+                 bindinput="inputNewPassword" />
+          <button class="btn-add" bindtap="setNewPassword">设置</button>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="hidePasswordSetting">关闭</button>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,287 @@
+<!--work-guide.wxml-->
+<view class="container ocean-bg">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">💼 工作指南</text>
+    <view class="header-buttons">
+      <button class="save-btn" bindtap="confirmSave" wx:if="{{isEditMode && hasUnsavedChanges}}">
+        💾 保存
+      </button>
+      <button class="edit-btn" bindtap="toggleEditMode">
+        {{isEditMode ? '完成编辑' : '编辑'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 工作流程 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">🔄</text>
+      <text class="section-title">工作流程</text>
+      <button class="add-workflow-btn" bindtap="addWorkflow" wx:if="{{isEditMode}}">
+        ➕ 添加流程
+      </button>
+    </view>
+    
+    <!-- 工作流程展示区域 -->
+    <view class="workflows-container" wx:if="{{!isEditMode}}">
+      <view class="workflows-grid">
+        <view class="workflow-card" wx:for="{{workGuide.workflows}}" wx:key="index">
+          <view class="workflow-info">
+            <text class="workflow-title">{{item.title}}</text>
+            <text class="workflow-desc">{{item.description}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 工作流程编辑区域 -->
+    <view class="workflows-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{workGuide.workflows.length}} 个工作流程</text>
+      </view>
+      
+      <view class="workflows-grid-edit">
+        <view class="workflow-card-edit" wx:for="{{workGuide.workflows}}" wx:key="index">
+          <view class="workflow-info-edit">
+            <input class="workflow-title-input" 
+                   value="{{item.title}}" 
+                   bindinput="updateWorkflowTitle" 
+                   data-index="{{index}}"
+                   placeholder="流程标题"/>
+            <textarea class="workflow-desc-input" 
+                      value="{{item.description}}" 
+                      bindinput="updateWorkflowDesc" 
+                      data-index="{{index}}"
+                      placeholder="流程描述"/>
+          </view>
+          <button class="remove-workflow-btn" 
+                  bindtap="removeWorkflow" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 工作材料 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">📄</text>
+      <text class="section-title">工作材料</text>
+      <button class="add-material-btn" bindtap="addMaterial" wx:if="{{isEditMode}}">
+        ➕ 添加材料
+      </button>
+    </view>
+    
+    <!-- 工作材料展示区域 -->
+    <view class="materials-container" wx:if="{{!isEditMode}}">
+      <view class="materials-grid">
+        <view class="material-card" wx:for="{{workGuide.materials}}" wx:key="index" bindtap="openMaterial" data-index="{{index}}">
+          <view class="material-info">
+            <text class="material-name">{{item.name}}</text>
+            <view class="material-file" wx:if="{{item.file}}">
+              <text class="file-icon">📎</text>
+              <text class="file-name">{{item.fileName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 工作材料编辑区域 -->
+    <view class="materials-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{workGuide.materials.length}} 个材料</text>
+      </view>
+      
+      <view class="materials-grid-edit">
+        <view class="material-card-edit" wx:for="{{workGuide.materials}}" wx:key="index">
+          <view class="material-info-edit">
+            <input class="material-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateMaterialName" 
+                   data-index="{{index}}"
+                   placeholder="材料名称"/>
+            <view class="file-upload">
+              <view class="file-info" wx:if="{{item.file}}">
+                <text class="file-icon">📎</text>
+                <text class="file-name">{{item.fileName}}</text>
+              </view>
+              <button class="btn-upload" bindtap="chooseFile" data-section="materials" data-index="{{index}}">
+                {{item.file ? '更换文件' : '上传文件'}}
+              </button>
+              <button wx:if="{{item.file}}" class="btn-remove-file" bindtap="removeFile" data-section="materials" data-index="{{index}}">删除文件</button>
+            </view>
+          </view>
+          <button class="remove-material-btn" 
+                  bindtap="removeMaterial" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">⚠️</text>
+      <text class="section-title">注意事项</text>
+      <button class="add-notice-btn" bindtap="addNotice" wx:if="{{isEditMode}}">
+        ➕ 添加注意事项
+      </button>
+    </view>
+    
+    <!-- 注意事项展示区域 -->
+    <view class="notices-container" wx:if="{{!isEditMode}}">
+      <view class="notices-grid">
+        <view class="notice-card" wx:for="{{workGuide.notices}}" wx:key="index">
+          <view class="notice-info">
+            <text class="notice-title">{{item.title}}</text>
+            <text class="notice-desc">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 注意事项编辑区域 -->
+    <view class="notices-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{workGuide.notices.length}} 个注意事项</text>
+      </view>
+      
+      <view class="notices-grid-edit">
+        <view class="notice-card-edit" wx:for="{{workGuide.notices}}" wx:key="index">
+          <view class="notice-info-edit">
+            <input class="notice-title-input" 
+                   value="{{item.title}}" 
+                   bindinput="updateNoticeTitle" 
+                   data-index="{{index}}"
+                   placeholder="注意事项标题"/>
+            <textarea class="notice-desc-input" 
+                      value="{{item.content}}" 
+                      bindinput="updateNoticeContent" 
+                      data-index="{{index}}"
+                      placeholder="注意事项内容"/>
+          </view>
+          <button class="remove-notice-btn" 
+                  bindtap="removeNotice" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 实用工具 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">🛠️</text>
+      <text class="section-title">实用工具</text>
+      <button class="add-tool-btn" bindtap="addTool" wx:if="{{isEditMode}}">
+        ➕ 添加工具
+      </button>
+    </view>
+    
+    <!-- 实用工具展示区域 -->
+    <view class="tools-container" wx:if="{{!isEditMode}}">
+      <view class="tools-grid">
+        <view class="tool-card" wx:for="{{workGuide.tools}}" wx:key="index" bindtap="openTool" data-index="{{index}}">
+          <view class="tool-info">
+            <text class="tool-name">{{item.name}}</text>
+            <text class="tool-desc">{{item.description}}</text>
+            <text class="tool-url">{{item.url}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 实用工具编辑区域 -->
+    <view class="tools-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{workGuide.tools.length}} 个工具</text>
+      </view>
+      
+      <view class="tools-grid-edit">
+        <view class="tool-card-edit" wx:for="{{workGuide.tools}}" wx:key="index">
+          <view class="tool-info-edit">
+            <input class="tool-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateToolName" 
+                   data-index="{{index}}"
+                   placeholder="工具名称"/>
+            <textarea class="tool-desc-input" 
+                      value="{{item.description}}" 
+                      bindinput="updateToolDesc" 
+                      data-index="{{index}}"
+                      placeholder="工具描述"/>
+            <input class="tool-url-input" 
+                   value="{{item.url}}" 
+                   bindinput="updateToolUrl" 
+                   data-index="{{index}}"
+                   placeholder="工具链接"/>
+          </view>
+          <button class="remove-tool-btn" 
+                  bindtap="removeTool" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 海洋装饰 -->
+  <view class="ocean-decoration">
+    <view class="seaweed seaweed-1">🌿</view>
+    <view class="seaweed seaweed-2">🌿</view>
+    <view class="seaweed seaweed-3">🌿</view>
+  </view>
+
+  <!-- 密码验证弹窗 -->
+  <view class="auth-modal" wx:if="{{showPasswordModal}}">
+    <view class="modal-overlay" bindtap="cancelPasswordAuth"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🔐 管理员验证</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">请输入管理员密码以验证身份</text>
+        <view class="password-input-group">
+          <input class="password-input" 
+                 type="password" 
+                 placeholder="请输入密码" 
+                 value="{{currentPassword}}"
+                 bindinput="inputPassword" />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="cancelPasswordAuth">取消</button>
+        <button class="btn-confirm" bindtap="verifyPassword">验证</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 保存提醒弹窗 -->
+  <view class="auth-modal" wx:if="{{showSaveReminderModal}}">
+    <view class="modal-overlay" bindtap="cancelSaveReminder"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">💾 保存提醒</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">您有未保存的更改，是否要保存？</text>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="discardChanges">放弃更改</button>
+        <button class="btn-confirm" bindtap="confirmSave">保存</button>
+      </view>
+    </view>
+  </view>
+
+
+</view> 

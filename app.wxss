@@ -1,0 +1,299 @@
+/**app.wxss**/
+/* 全局样式 - 海洋主题 + 柯基元素 */
+page {
+  --ocean-primary: #1e3a8a;      /* 深海蓝 */
+  --ocean-secondary: #3b82f6;    /* 海洋蓝 */
+  --ocean-accent: #06b6d4;       /* 青蓝色 */
+  --ocean-light: #e0f2fe;        /* 浅海蓝 */
+  --ocean-white: #f0f9ff;        /* 浪花白 */
+  --ocean-sand: #fef3c7;         /* 沙滩色 */
+  --ocean-coral: #f87171;        /* 珊瑚红 */
+  --ocean-text: #1e293b;         /* 深色文字 */
+  --ocean-text-light: #64748b;   /* 浅色文字 */
+  
+  background: linear-gradient(135deg, var(--ocean-white) 0%, var(--ocean-light) 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: var(--ocean-text);
+  line-height: 1.6;
+}
+
+/* 全局容器样式 */
+.container {
+  min-height: 100vh;
+  padding: 20rpx;
+  background: linear-gradient(135deg, var(--ocean-white) 0%, var(--ocean-light) 100%);
+}
+
+/* 页面头部样式 */
+.page-header {
+  text-align: center;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.page-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  text-shadow: 0 2rpx 4rpx rgba(30, 58, 138, 0.1);
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.page-subtitle {
+  font-size: 28rpx;
+  color: var(--ocean-text-light);
+  opacity: 0.9;
+  display: block;
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(90deg, var(--ocean-accent), var(--ocean-secondary));
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--ocean-primary) 0%, var(--ocean-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: 15rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 16rpx rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 8rpx rgba(30, 58, 138, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ocean-primary);
+  border: 2rpx solid var(--ocean-primary);
+  border-radius: 15rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:active {
+  background: var(--ocean-primary);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 15rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 16rpx rgba(6, 182, 212, 0.3);
+}
+
+.btn-danger {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 15rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 输入框样式 */
+.input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.textarea {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  background: white;
+  min-height: 150rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 25rpx;
+  display: block;
+  text-align: center;
+}
+
+.subsection-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-secondary);
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+/* 文本样式 */
+.text-content {
+  font-size: 28rpx;
+  color: var(--ocean-text);
+  line-height: 1.8;
+  margin-bottom: 20rpx;
+}
+
+.text-light {
+  font-size: 26rpx;
+  color: var(--ocean-text-light);
+  line-height: 1.6;
+}
+
+/* 列表样式 */
+.list-item {
+  background: white;
+  border-radius: 15rpx;
+  padding: 25rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  border-left: 6rpx solid var(--ocean-accent);
+}
+
+/* 柯基装饰元素 */
+.corgi-decoration {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200rpx;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.corgi-paw {
+  position: absolute;
+  font-size: 60rpx;
+  opacity: 0.6;
+  animation: pawBounce 3s ease-in-out infinite;
+}
+
+.corgi-paw-1 {
+  bottom: 50rpx;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.corgi-paw-2 {
+  bottom: 80rpx;
+  right: 25%;
+  animation-delay: 1s;
+}
+
+.corgi-paw-3 {
+  bottom: 60rpx;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.corgi-tail {
+  position: absolute;
+  font-size: 80rpx;
+  opacity: 0.4;
+  animation: tailWag 4s ease-in-out infinite;
+}
+
+.corgi-tail-1 {
+  bottom: 120rpx;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.corgi-tail-2 {
+  bottom: 150rpx;
+  right: 30%;
+  animation-delay: 2s;
+}
+
+/* 柯基动画 */
+@keyframes pawBounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: translateY(-20rpx) scale(1.1); 
+    opacity: 0.8; 
+  }
+}
+
+@keyframes tailWag {
+  0%, 100% { 
+    transform: rotate(0deg); 
+    opacity: 0.4; 
+  }
+  25% { 
+    transform: rotate(15deg); 
+    opacity: 0.6; 
+  }
+  75% { 
+    transform: rotate(-15deg); 
+    opacity: 0.6; 
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .page-title {
+    font-size: 40rpx;
+  }
+  
+  .card {
+    padding: 25rpx;
+    margin-bottom: 25rpx;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    padding: 18rpx 35rpx;
+    font-size: 26rpx;
+  }
+  
+  .input,
+  .textarea {
+    padding: 18rpx;
+    font-size: 26rpx;
+  }
+} 

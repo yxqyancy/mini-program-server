@@ -1,0 +1,500 @@
+/* 首页样式 - 海洋主题 + 柯基元素 */
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--ocean-white) 0%, var(--ocean-light) 100%);
+}
+
+/* 页面头部 */
+.page-header {
+  text-align: center;
+  padding: 60rpx 30rpx 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.page-title {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  text-shadow: 0 4rpx 8rpx rgba(30, 58, 138, 0.2);
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.page-subtitle {
+  font-size: 28rpx;
+  color: var(--ocean-text-light);
+  opacity: 0.9;
+  display: block;
+  line-height: 1.5;
+}
+
+/* 服务器连接状态 */
+.server-status-section {
+  margin: 0 20rpx 30rpx;
+}
+
+.server-status-card {
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16rpx;
+  box-shadow: 0 6rpx 24rpx rgba(30, 58, 138, 0.12);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+}
+
+.server-status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.server-status-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.server-status-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  flex: 1;
+}
+
+.server-status-indicator {
+  font-size: 28rpx;
+  animation: none;
+}
+
+.server-status-indicator.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.server-status-info {
+  margin-bottom: 20rpx;
+}
+
+.status-text {
+  font-size: 28rpx;
+  color: var(--ocean-primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.last-check-text {
+  font-size: 24rpx;
+  color: var(--ocean-text-light);
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.error-text {
+  font-size: 24rpx;
+  color: #e74c3c;
+  display: block;
+  margin-bottom: 8rpx;
+  word-break: break-all;
+}
+
+.server-status-buttons {
+  display: flex;
+  gap: 20rpx;
+  flex-wrap: wrap;
+}
+
+.server-status-buttons .btn-secondary {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200rpx;
+  transition: all 0.3s ease;
+}
+
+.server-status-buttons .btn-secondary:active {
+  background: var(--ocean-secondary);
+  transform: scale(0.95);
+}
+
+/* 管理员功能 */
+.admin-section {
+  margin: 0 20rpx 30rpx;
+}
+
+.admin-card {
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16rpx;
+  box-shadow: 0 6rpx 24rpx rgba(30, 58, 138, 0.12);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.admin-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.admin-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 20rpx;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200rpx;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:active {
+  background: var(--ocean-secondary);
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background: var(--ocean-primary);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200rpx;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active {
+  background: var(--ocean-secondary);
+  transform: scale(0.95);
+}
+
+/* 导航区域 */
+.nav-section {
+  padding: 0 20rpx;
+}
+
+.nav-card {
+  margin-bottom: 30rpx;
+  padding: 35rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 16rpx rgba(30, 58, 138, 0.15);
+}
+
+.nav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(90deg, var(--ocean-accent), var(--ocean-secondary));
+}
+
+.nav-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.nav-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+.nav-desc {
+  font-size: 28rpx;
+  color: var(--ocean-text-light);
+  line-height: 1.6;
+  margin-bottom: 25rpx;
+  display: block;
+}
+
+.nav-arrow {
+  position: absolute;
+  right: 35rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40rpx;
+  color: var(--ocean-accent);
+  font-weight: bold;
+}
+
+/* 柯基装饰 */
+.corgi-decoration {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250rpx;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.corgi-paw {
+  position: absolute;
+  font-size: 80rpx;
+  opacity: 0.7;
+  animation: pawBounce 4s ease-in-out infinite;
+}
+
+.corgi-paw-1 {
+  bottom: 60rpx;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.corgi-paw-2 {
+  bottom: 100rpx;
+  right: 25%;
+  animation-delay: 1.5s;
+}
+
+.corgi-paw-3 {
+  bottom: 80rpx;
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.corgi-tail {
+  position: absolute;
+  font-size: 100rpx;
+  opacity: 0.5;
+  animation: tailWag 5s ease-in-out infinite;
+}
+
+.corgi-tail-1 {
+  bottom: 140rpx;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.corgi-tail-2 {
+  bottom: 180rpx;
+  right: 30%;
+  animation-delay: 2.5s;
+}
+
+/* 柯基动画 */
+@keyframes pawBounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateY(-30rpx) scale(1.2); 
+    opacity: 0.9; 
+  }
+}
+
+@keyframes tailWag {
+  0%, 100% { 
+    transform: rotate(0deg); 
+    opacity: 0.5; 
+  }
+  25% { 
+    transform: rotate(20deg); 
+    opacity: 0.7; 
+  }
+  75% { 
+    transform: rotate(-20deg); 
+    opacity: 0.7; 
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .page-title {
+    font-size: 48rpx;
+  }
+  
+  .page-subtitle {
+    font-size: 26rpx;
+  }
+  
+  .nav-card {
+    padding: 30rpx;
+    margin-bottom: 25rpx;
+  }
+  
+  .nav-title {
+    font-size: 32rpx;
+  }
+  
+  .nav-desc {
+    font-size: 26rpx;
+  }
+  
+  .nav-icon {
+    font-size: 42rpx;
+  }
+}
+
+/* 密码验证相关样式 */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  width: 80%;
+  max-width: 600rpx;
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+.modal-body {
+  margin-bottom: 30rpx;
+}
+
+.modal-desc {
+  font-size: 28rpx;
+  color: var(--ocean-text-light);
+  text-align: center;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.password-input-group {
+  margin: 20rpx 0;
+}
+
+.password-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.modal-footer {
+  display: flex;
+  border-top: 1rpx solid #eee;
+}
+
+.btn-cancel,
+.btn-confirm {
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border: none;
+  background: transparent;
+}
+
+.btn-cancel {
+  color: var(--ocean-text-light);
+  border-right: 1rpx solid #eee;
+}
+
+.btn-confirm {
+  background: var(--ocean-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* 密码设置相关样式 */
+.password-setting {
+  margin: 20rpx 0;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.btn-add {
+  background: var(--ocean-primary);
+  color: white;
+  border: none;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 20rpx;
+} 

@@ -1,0 +1,873 @@
+/* 部门简介页面样式 - 海洋主题 */
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--ocean-white) 0%, var(--ocean-light) 100%);
+}
+
+/* 页面标题样式 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 4rpx 16rpx rgba(30, 58, 138, 0.1);
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  text-shadow: 0 2rpx 4rpx rgba(30, 58, 138, 0.1);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15rpx;
+  align-items: center;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, var(--ocean-secondary) 0%, var(--ocean-accent) 100%);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+  transition: all 0.3s ease;
+}
+
+.save-btn:active {
+  background: linear-gradient(135deg, var(--ocean-primary) 0%, var(--ocean-secondary) 100%);
+  transform: scale(0.95);
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, var(--ocean-primary) 0%, var(--ocean-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+/* 章节样式 */
+.section {
+  margin-bottom: 40rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25rpx;
+  padding-bottom: 15rpx;
+  border-bottom: 2rpx solid var(--ocean-light);
+}
+
+.section-icon {
+  font-size: 32rpx;
+  margin-right: 15rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+/* 信息项样式 */
+.info-item {
+  background: white;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  border-left: 6rpx solid var(--ocean-accent);
+}
+
+.info-label {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: var(--ocean-secondary);
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+}
+
+/* 输入组样式 */
+.input-group {
+  margin-bottom: 20rpx;
+}
+
+.input-label {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: var(--ocean-secondary);
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+/* 输入框样式 */
+.input {
+  width: 100%;
+  padding: 15rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  background: white;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+}
+
+.textarea {
+  width: 100%;
+  padding: 15rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  background: white;
+  min-height: 120rpx;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* 成员介绍样式 */
+.members-container {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+.members-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.members-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.members-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.members-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.member-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 280rpx;
+  min-height: 350rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.member-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.member-photo-container {
+  margin-bottom: 20rpx;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+}
+
+.member-photo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--ocean-accent);
+  margin: 0 auto 15rpx;
+  display: block;
+}
+
+.member-photo-placeholder {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 3rpx dashed var(--ocean-light);
+  margin: 0 auto 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.photo-placeholder-text {
+  font-size: 50rpx;
+  color: var(--ocean-secondary);
+}
+
+.member-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.member-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 10rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.member-description {
+  font-size: 26rpx;
+  color: var(--ocean-text);
+  line-height: 1.4;
+  display: block;
+  word-wrap: break-word;
+  flex: 1;
+  height: auto;
+}
+
+/* 成员编辑样式 */
+.members-edit {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+}
+
+/* 添加成员按钮 */
+.add-member-btn {
+  background: linear-gradient(135deg, var(--ocean-accent), var(--ocean-primary));
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 25rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 15rpx rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  margin-left: 20rpx;
+}
+
+.add-member-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(30, 58, 138, 0.4);
+}
+
+/* 删除成员按钮 */
+.remove-member-btn {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3rpx 12rpx rgba(255, 71, 87, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-member-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2rpx 8rpx rgba(255, 71, 87, 0.6);
+}
+
+/* 更新成员卡片编辑样式，添加相对定位以支持删除按钮 */
+.member-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 30rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 350rpx;
+  min-height: 400rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+/* 更新编辑通知样式 */
+.edit-notice {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(59, 130, 246, 0.1));
+  padding: 20rpx 30rpx;
+  border-radius: 15rpx;
+  margin-bottom: 30rpx;
+  border-left: 4rpx solid var(--ocean-accent);
+  text-align: center;
+}
+
+.edit-notice text {
+  font-size: 26rpx;
+  color: var(--ocean-secondary);
+  font-weight: 500;
+}
+
+.edit-notice {
+  background: var(--ocean-light);
+  padding: 20rpx;
+  border-radius: 15rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--ocean-secondary);
+  font-weight: bold;
+}
+
+.members-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  padding: 20rpx;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.members-grid-edit::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.members-grid-edit::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.members-grid-edit::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.member-card-edit {
+  background: #f8f9fa;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  border: 3rpx dashed var(--ocean-light);
+  min-width: 380rpx;
+  min-height: 480rpx;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-photo-edit {
+  text-align: center;
+  margin-bottom: 20rpx;
+  cursor: pointer;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+}
+
+.member-photo-edit .member-photo {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--ocean-accent);
+  margin: 0 auto 15rpx;
+}
+
+.member-photo-edit .member-photo-placeholder {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 3rpx dashed var(--ocean-light);
+  margin: 0 auto 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.member-photo-edit .photo-placeholder-text {
+  font-size: 30rpx;
+  color: var(--ocean-secondary);
+}
+
+.member-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  flex: 1;
+  height: auto;
+}
+
+.member-name-input {
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  background: white;
+  text-align: center;
+  min-height: 60rpx;
+}
+
+.member-description-input {
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  background: white;
+  min-height: 120rpx;
+  resize: vertical;
+  flex: 1;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--ocean-primary) 0%, var(--ocean-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+  margin: 5rpx;
+}
+
+.btn-success {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+  margin: 5rpx;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ocean-primary);
+  border: 2rpx solid var(--ocean-primary);
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+  margin: 5rpx;
+}
+
+.btn-danger {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+/* 海洋装饰元素 */
+.ocean-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  font-size: 40rpx;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.bubble-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.bubble-3 {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* 授权验证弹窗样式 */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  width: 80%;
+  max-width: 600rpx;
+  text-align: center;
+  position: relative;
+  z-index: 1001;
+  box-shadow: 0 16rpx 64rpx rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  margin-bottom: 20rpx;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.modal-body {
+  margin-bottom: 30rpx;
+}
+
+.modal-desc {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 20rpx;
+  justify-content: center;
+}
+
+/* 管理员管理弹窗样式 */
+.admin-modal {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.admin-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.admin-list {
+  margin-bottom: 30rpx;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx;
+  background: #f8f9fa;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.admin-name {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.btn-remove {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 8rpx;
+  padding: 8rpx 16rpx;
+  font-size: 22rpx;
+  margin-left: 15rpx;
+}
+
+.add-admin {
+  display: flex;
+  gap: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.admin-input {
+  flex: 1;
+  padding: 15rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  background: white;
+}
+
+.btn-add {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 20rpx;
+  font-size: 26rpx;
+  white-space: nowrap;
+}
+
+/* 密码验证相关样式 */
+.password-input-group {
+  margin: 20rpx 0;
+}
+
+.password-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.password-setting {
+  margin: 20rpx 0;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.btn-cancel {
+  background: #f8f9fa;
+  color: #666;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+}
+
+.btn-confirm {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 15rpx 30rpx;
+  font-size: 26rpx;
+}
+
+/* 部门信息样式 */
+.department-info {
+  padding: 30rpx;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(30, 58, 138, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.department-name {
+  margin-bottom: 40rpx;
+  text-align: center;
+  position: relative;
+}
+
+.department-name::after {
+  content: '';
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rpx;
+  height: 3rpx;
+  background: linear-gradient(90deg, var(--ocean-accent), var(--ocean-primary));
+  border-radius: 2rpx;
+}
+
+.name-label {
+  display: block;
+  font-size: 24rpx;
+  color: var(--ocean-secondary);
+  font-weight: 500;
+  margin-bottom: 15rpx;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+}
+
+.name-value {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  text-shadow: 0 2rpx 4rpx rgba(30, 58, 138, 0.1);
+  background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.department-description {
+  text-align: left;
+}
+
+.desc-label {
+  display: block;
+  font-size: 26rpx;
+  color: var(--ocean-secondary);
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  padding-left: 10rpx;
+  border-left: 4rpx solid var(--ocean-accent);
+}
+
+.desc-value {
+  display: block;
+  font-size: 28rpx;
+  color: var(--ocean-text);
+  line-height: 1.8;
+  text-align: justify;
+  text-indent: 2em;
+  letter-spacing: 1rpx;
+  word-spacing: 2rpx;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25rpx;
+  border-radius: 15rpx;
+  box-shadow: inset 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .page-title {
+    text-align: center;
+    margin-bottom: 20rpx;
+  }
+  
+  .members-grid,
+  .members-grid-edit {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  
+  .member-card,
+  .member-card-edit {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 10rpx;
+    min-width: auto;
+  }
+  
+  .page-numbers {
+    order: -1;
+  }
+  
+  .modal-content {
+    width: 90%;
+    padding: 30rpx;
+  }
+  
+  .add-admin {
+    flex-direction: column;
+  }
+  
+  .btn-add {
+    width: 100%;
+  }
+  
+  .modal-footer {
+    flex-direction: column;
+  }
+} 

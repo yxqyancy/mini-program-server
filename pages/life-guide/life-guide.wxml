@@ -1,0 +1,331 @@
+<!--life-guide.wxml-->
+<view class="container ocean-bg">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">🏠 生活指南</text>
+    <view class="header-buttons">
+      <button class="save-btn" bindtap="confirmSave" wx:if="{{isEditMode && hasUnsavedChanges}}">
+        💾 保存
+      </button>
+      <button class="edit-btn" bindtap="toggleEditMode">
+        {{isEditMode ? '完成编辑' : '编辑'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 美食 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">🍽️</text>
+      <text class="section-title">美食</text>
+      <button class="add-food-btn" bindtap="addFood" wx:if="{{isEditMode}}">
+        ➕ 添加美食
+      </button>
+    </view>
+    
+    <!-- 美食展示区域 -->
+    <view class="foods-container" wx:if="{{!isEditMode}}">
+      <view class="foods-grid">
+        <view class="food-card" wx:for="{{lifeGuide.foods}}" wx:key="index">
+          <view class="food-info">
+            <text class="food-name">{{item.name}}</text>
+            <text class="food-location">{{item.location}}</text>
+            <text class="food-price">{{item.price}}</text>
+            <view class="food-image" wx:if="{{item.image}}">
+              <image src="{{item.image}}" mode="aspectFill" bindtap="previewImage" data-src="{{item.image}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 美食编辑区域 -->
+    <view class="foods-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{lifeGuide.foods.length}} 个美食</text>
+      </view>
+      
+      <view class="foods-grid-edit">
+        <view class="food-card-edit" wx:for="{{lifeGuide.foods}}" wx:key="index">
+          <view class="food-info-edit">
+            <input class="food-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateFoodName" 
+                   data-index="{{index}}"
+                   placeholder="美食名称"/>
+            <input class="food-location-input" 
+                   value="{{item.location}}" 
+                   bindinput="updateFoodLocation" 
+                   data-index="{{index}}"
+                   placeholder="位置"/>
+            <input class="food-price-input" 
+                   value="{{item.price}}" 
+                   bindinput="updateFoodPrice" 
+                   data-index="{{index}}"
+                   placeholder="价格"/>
+            <view class="image-upload">
+              <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="uploaded-image"/>
+              <button class="btn-upload" bindtap="chooseImage" data-section="foods" data-index="{{index}}">
+                {{item.image ? '更换图片' : '上传图片'}}
+              </button>
+              <button wx:if="{{item.image}}" class="btn-remove-image" bindtap="removeImage" data-section="foods" data-index="{{index}}">删除图片</button>
+            </view>
+          </view>
+          <button class="remove-food-btn" 
+                  bindtap="removeFood" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 团建 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">🎉</text>
+      <text class="section-title">团建</text>
+      <button class="add-team-building-btn" bindtap="addTeamBuilding" wx:if="{{isEditMode}}">
+        ➕ 添加团建
+      </button>
+    </view>
+    
+    <!-- 团建展示区域 -->
+    <view class="team-buildings-container" wx:if="{{!isEditMode}}">
+      <view class="team-buildings-grid">
+        <view class="team-building-card" wx:for="{{lifeGuide.teamBuildings}}" wx:key="index">
+          <view class="team-building-info">
+            <text class="team-building-name">{{item.name}}</text>
+            <text class="team-building-desc">{{item.description}}</text>
+            <text class="team-building-time">{{item.time}}</text>
+            <text class="team-building-location">{{item.location}}</text>
+            <view class="team-building-image" wx:if="{{item.image}}">
+              <image src="{{item.image}}" mode="aspectFill" bindtap="previewImage" data-src="{{item.image}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 团建编辑区域 -->
+    <view class="team-buildings-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{lifeGuide.teamBuildings.length}} 个团建活动</text>
+      </view>
+      
+      <view class="team-buildings-grid-edit">
+        <view class="team-building-card-edit" wx:for="{{lifeGuide.teamBuildings}}" wx:key="index">
+          <view class="team-building-info-edit">
+            <input class="team-building-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateTeamBuildingName" 
+                   data-index="{{index}}"
+                   placeholder="团建名称"/>
+            <textarea class="team-building-desc-input" 
+                      value="{{item.description}}" 
+                      bindinput="updateTeamBuildingDesc" 
+                      data-index="{{index}}"
+                      placeholder="团建描述"/>
+            <input class="team-building-time-input" 
+                   value="{{item.time}}" 
+                   bindinput="updateTeamBuildingTime" 
+                   data-index="{{index}}"
+                   placeholder="时间"/>
+            <input class="team-building-location-input" 
+                   value="{{item.location}}" 
+                   bindinput="updateTeamBuildingLocation" 
+                   data-index="{{index}}"
+                   placeholder="地点"/>
+            <view class="image-upload">
+              <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="uploaded-image"/>
+              <button class="btn-upload" bindtap="chooseImage" data-section="teamBuildings" data-index="{{index}}">
+                {{item.image ? '更换图片' : '上传图片'}}
+              </button>
+              <button wx:if="{{item.image}}" class="btn-remove-image" bindtap="removeImage" data-section="teamBuildings" data-index="{{index}}">删除图片</button>
+            </view>
+          </view>
+          <button class="remove-team-building-btn" 
+                  bindtap="removeTeamBuilding" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 赚钱 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">💰</text>
+      <text class="section-title">赚钱</text>
+      <button class="add-money-btn" bindtap="addMoney" wx:if="{{isEditMode}}">
+        ➕ 添加工作
+      </button>
+    </view>
+    
+    <!-- 赚钱展示区域 -->
+    <view class="moneys-container" wx:if="{{!isEditMode}}">
+      <view class="moneys-grid">
+        <view class="money-card" wx:for="{{lifeGuide.moneys}}" wx:key="index">
+          <view class="money-info">
+            <text class="money-name">{{item.name}}</text>
+            <text class="money-desc">{{item.description}}</text>
+            <text class="money-salary">{{item.salary}}</text>
+            <view class="money-image" wx:if="{{item.image}}">
+              <image src="{{item.image}}" mode="aspectFill" bindtap="previewImage" data-src="{{item.image}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 赚钱编辑区域 -->
+    <view class="moneys-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{lifeGuide.moneys.length}} 个工作</text>
+      </view>
+      
+      <view class="moneys-grid-edit">
+        <view class="money-card-edit" wx:for="{{lifeGuide.moneys}}" wx:key="index">
+          <view class="money-info-edit">
+            <input class="money-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateMoneyName" 
+                   data-index="{{index}}"
+                   placeholder="工作名称"/>
+            <textarea class="money-desc-input" 
+                      value="{{item.description}}" 
+                      bindinput="updateMoneyDesc" 
+                      data-index="{{index}}"
+                      placeholder="工作描述"/>
+            <input class="money-salary-input" 
+                   value="{{item.salary}}" 
+                   bindinput="updateMoneySalary" 
+                   data-index="{{index}}"
+                   placeholder="薪资"/>
+            <view class="image-upload">
+              <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="uploaded-image"/>
+              <button class="btn-upload" bindtap="chooseImage" data-section="moneys" data-index="{{index}}">
+                {{item.image ? '更换图片' : '上传图片'}}
+              </button>
+              <button wx:if="{{item.image}}" class="btn-remove-image" bindtap="removeImage" data-section="moneys" data-index="{{index}}">删除图片</button>
+            </view>
+          </view>
+          <button class="remove-money-btn" 
+                  bindtap="removeMoney" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 校园地图 -->
+  <view class="section card">
+    <view class="section-header">
+      <text class="section-icon">🗺️</text>
+      <text class="section-title">校园地图</text>
+      <button class="add-map-btn" bindtap="addMap" wx:if="{{isEditMode}}">
+        ➕ 添加地图
+      </button>
+    </view>
+    
+    <!-- 校园地图展示区域 -->
+    <view class="maps-container" wx:if="{{!isEditMode}}">
+      <view class="maps-grid">
+        <view class="map-card" wx:for="{{lifeGuide.maps}}" wx:key="index">
+          <view class="map-info">
+            <text class="map-name">{{item.name}}</text>
+            <view class="map-image" wx:if="{{item.image}}">
+              <image src="{{item.image}}" mode="aspectFill" bindtap="previewImage" data-src="{{item.image}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 校园地图编辑区域 -->
+    <view class="maps-edit" wx:if="{{isEditMode}}">
+      <view class="edit-notice">
+        <text>当前编辑模式，总计 {{lifeGuide.maps.length}} 个地图</text>
+      </view>
+      
+      <view class="maps-grid-edit">
+        <view class="map-card-edit" wx:for="{{lifeGuide.maps}}" wx:key="index">
+          <view class="map-info-edit">
+            <input class="map-name-input" 
+                   value="{{item.name}}" 
+                   bindinput="updateMapName" 
+                   data-index="{{index}}"
+                   placeholder="地图名称"/>
+            <view class="image-upload">
+              <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="uploaded-image"/>
+              <button class="btn-upload" bindtap="chooseImage" data-section="maps" data-index="{{index}}">
+                {{item.image ? '更换图片' : '上传图片'}}
+              </button>
+              <button wx:if="{{item.image}}" class="btn-remove-image" bindtap="removeImage" data-section="maps" data-index="{{index}}">删除图片</button>
+            </view>
+          </view>
+          <button class="remove-map-btn" 
+                  bindtap="removeMap" 
+                  data-index="{{index}}">
+            🗑️
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 海洋装饰 -->
+  <view class="ocean-decoration">
+    <view class="coral coral-1">🪸</view>
+    <view class="coral coral-2">🪸</view>
+    <view class="coral coral-3">🪸</view>
+  </view>
+
+  <!-- 密码验证弹窗 -->
+  <view class="auth-modal" wx:if="{{showPasswordModal}}">
+    <view class="modal-overlay" bindtap="cancelPasswordAuth"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🔐 管理员验证</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">请输入管理员密码以验证身份</text>
+        <view class="password-input-group">
+          <input class="password-input" 
+                 type="password" 
+                 placeholder="请输入密码" 
+                 value="{{currentPassword}}"
+                 bindinput="inputPassword" />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="cancelPasswordAuth">取消</button>
+        <button class="btn-confirm" bindtap="verifyPassword">验证</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 保存提醒弹窗 -->
+  <view class="auth-modal" wx:if="{{showSaveReminderModal}}">
+    <view class="modal-overlay" bindtap="cancelSaveReminder"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">💾 保存提醒</text>
+      </view>
+      <view class="modal-body">
+        <text class="modal-desc">您有未保存的更改，是否要保存？</text>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="discardChanges">放弃更改</button>
+        <button class="btn-confirm" bindtap="confirmSave">保存</button>
+      </view>
+    </view>
+  </view>
+
+
+</view> 

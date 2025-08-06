@@ -1,0 +1,656 @@
+/* 生活指南页面样式 */
+
+/* 页面头部 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15rpx;
+  align-items: center;
+}
+
+.save-btn {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.save-btn:active {
+  background: var(--ocean-secondary);
+  transform: scale(0.95);
+}
+
+.edit-btn {
+  background: var(--ocean-secondary);
+  color: white;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.edit-btn:active {
+  background: var(--ocean-primary);
+}
+
+/* 内容区域 */
+.section {
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(30, 58, 138, 0.1);
+  border: 2rpx solid rgba(59, 130, 246, 0.1);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid rgba(30, 58, 138, 0.1);
+}
+
+.section-icon {
+  font-size: 36rpx;
+  margin-right: 15rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  flex: 1;
+}
+
+.add-food-btn,
+.add-team-building-btn,
+.add-money-btn {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 15rpx;
+  padding: 12rpx 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.add-food-btn:active,
+.add-team-building-btn:active,
+.add-money-btn:active {
+  background: var(--ocean-secondary);
+}
+
+/* 编辑模式提示 */
+.edit-notice {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.edit-notice text {
+  font-size: 26rpx;
+  color: var(--ocean-primary);
+  font-weight: 600;
+}
+
+/* 美食卡片样式 */
+.foods-container,
+.team-buildings-container,
+.moneys-container,
+.maps-container {
+  margin-bottom: 20rpx;
+}
+
+.foods-grid,
+.team-buildings-grid,
+.moneys-grid,
+.maps-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+  overflow-x: auto;
+  padding: 10rpx 0;
+  scroll-behavior: smooth;
+}
+
+.foods-grid::-webkit-scrollbar,
+.team-buildings-grid::-webkit-scrollbar,
+.moneys-grid::-webkit-scrollbar,
+.maps-grid::-webkit-scrollbar {
+  height: 8rpx;
+}
+
+.foods-grid::-webkit-scrollbar-track,
+.team-buildings-grid::-webkit-scrollbar-track,
+.moneys-grid::-webkit-scrollbar-track,
+.maps-grid::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 4rpx;
+}
+
+.foods-grid::-webkit-scrollbar-thumb,
+.team-buildings-grid::-webkit-scrollbar-thumb,
+.moneys-grid::-webkit-scrollbar-thumb,
+.maps-grid::-webkit-scrollbar-thumb {
+  background: var(--ocean-accent);
+  border-radius: 4rpx;
+}
+
+.food-card,
+.team-building-card,
+.money-card,
+.map-card {
+  background: white;
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(30, 58, 138, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300rpx;
+  min-height: 400rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.food-card:hover,
+.team-building-card:hover,
+.money-card:hover,
+.map-card:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 8rpx 25rpx rgba(30, 58, 138, 0.2);
+}
+
+.food-info,
+.team-building-info,
+.money-info,
+.map-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.food-name,
+.team-building-name,
+.money-name,
+.map-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  display: block;
+  margin-bottom: 25rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.team-building-desc,
+.money-desc {
+  font-size: 26rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 20rpx;
+  word-wrap: break-word;
+  flex: 1;
+  height: auto;
+}
+
+.food-location,
+.team-building-time,
+.money-salary {
+  font-size: 24rpx;
+  color: var(--ocean-accent);
+  display: block;
+  margin-bottom: 15rpx;
+  line-height: 1.3;
+  height: auto;
+}
+
+.food-price,
+.team-building-location {
+  font-size: 22rpx;
+  color: var(--ocean-secondary);
+  line-height: 1.3;
+  display: block;
+  word-break: break-all;
+  height: auto;
+}
+
+.food-image,
+.team-building-image,
+.money-image,
+.map-image {
+  margin-top: 20rpx;
+  flex: 0 0 auto;
+}
+
+.food-image image,
+.team-building-image image,
+.money-image image,
+.map-image image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid var(--ocean-light);
+  object-fit: cover;
+}
+
+/* 编辑模式卡片样式 */
+.foods-edit,
+.team-buildings-edit,
+.moneys-edit,
+.maps-edit {
+  margin-bottom: 20rpx;
+}
+
+.foods-grid-edit,
+.team-buildings-grid-edit,
+.moneys-grid-edit,
+.maps-grid-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+  overflow-x: auto;
+  padding: 10rpx 0;
+  scroll-behavior: smooth;
+}
+
+.food-card-edit,
+.team-building-card-edit,
+.money-card-edit,
+.map-card-edit {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.9) 100%);
+  border-radius: 15rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(30, 58, 138, 0.15);
+  border: 2rpx solid rgba(30, 58, 138, 0.1);
+  transition: all 0.3s ease;
+  width: 350rpx;
+  min-height: 450rpx;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card-edit:hover,
+.team-building-card-edit:hover,
+.money-card-edit:hover,
+.map-card-edit:hover {
+  transform: translateY(-3rpx);
+  box-shadow: 0 10rpx 30rpx rgba(30, 58, 138, 0.2);
+}
+
+.food-info-edit,
+.team-building-info-edit,
+.money-info-edit,
+.map-info-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex: 1;
+  height: auto;
+}
+
+.food-name-input,
+.team-building-name-input,
+.money-name-input,
+.map-name-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.team-building-desc-input,
+.money-desc-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  min-height: 300rpx;
+  resize: vertical;
+  flex: 1;
+  text-align: left;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.food-location-input,
+.team-building-time-input,
+.money-salary-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.food-price-input,
+.team-building-location-input {
+  padding: 25rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  background: white;
+  text-align: left;
+  min-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.remove-food-btn,
+.remove-team-building-btn,
+.remove-money-btn,
+.remove-map-btn {
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.remove-food-btn:active,
+.remove-team-building-btn:active,
+.remove-money-btn:active,
+.remove-map-btn:active {
+  background: #e53e3e;
+  transform: scale(0.95);
+}
+
+/* 图片上传样式 */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 20rpx;
+}
+
+.uploaded-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid var(--ocean-light);
+  object-fit: cover;
+  align-self: center;
+}
+
+.btn-upload {
+  background: var(--ocean-accent);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  width: fit-content;
+  align-self: center;
+}
+
+.btn-upload:active {
+  background: var(--ocean-secondary);
+}
+
+.btn-remove-image {
+  background: var(--ocean-coral);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  padding: 15rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  width: fit-content;
+  align-self: center;
+}
+
+.btn-remove-image:active {
+  background: #e53e3e;
+}
+
+/* 海洋装饰 */
+.ocean-decoration {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200rpx;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.coral {
+  position: absolute;
+  font-size: 60rpx;
+  opacity: 0.6;
+  animation: coralGrow 4s ease-in-out infinite;
+}
+
+.coral-1 {
+  bottom: 20rpx;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.coral-2 {
+  bottom: 40rpx;
+  right: 20%;
+  animation-delay: 1.5s;
+}
+
+.coral-3 {
+  bottom: 30rpx;
+  left: 60%;
+  animation-delay: 3s;
+}
+
+@keyframes coralGrow {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scale(1.1) rotate(5deg); 
+    opacity: 0.8; 
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .page-header {
+    padding: 20rpx;
+  }
+  
+  .section {
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .page-title {
+    font-size: 32rpx;
+  }
+  
+  .section-title {
+    font-size: 30rpx;
+  }
+  
+  .food-card,
+  .team-building-card,
+  .money-card {
+    width: 280rpx;
+    padding: 30rpx;
+  }
+  
+  .food-card-edit,
+  .team-building-card-edit,
+  .money-card-edit {
+    width: 320rpx;
+    padding: 30rpx;
+  }
+}
+
+/* 授权验证弹窗样式 */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20rpx;
+  width: 80%;
+  max-width: 600rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  z-index: 1001;
+}
+
+.modal-header {
+  background: var(--ocean-primary);
+  color: white;
+  padding: 30rpx;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 40rpx 30rpx;
+}
+
+.modal-desc {
+  font-size: 30rpx;
+  color: var(--ocean-text);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.modal-footer {
+  display: flex;
+  border-top: 1rpx solid #eee;
+}
+
+.btn-cancel,
+.btn-confirm {
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  border: none;
+  background: transparent;
+}
+
+.btn-cancel {
+  color: var(--ocean-text-light);
+  border-right: 1rpx solid #eee;
+}
+
+.btn-confirm {
+  background: var(--ocean-primary);
+  color: white;
+}
+
+.btn-cancel:active,
+.btn-confirm:active {
+  background: #f5f5f5;
+}
+
+/* 管理员管理弹窗样式 */
+.admin-modal {
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* 密码验证相关样式 */
+.password-input-group {
+  margin: 20rpx 0;
+}
+
+.password-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid var(--ocean-light);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.password-setting {
+  margin: 20rpx 0;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--ocean-primary);
+  margin-bottom: 15rpx;
+  display: block;
+} 
